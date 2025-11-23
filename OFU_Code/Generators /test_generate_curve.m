@@ -16,7 +16,7 @@ for i = 1:num_species
 end
 hold off;
 
-% Customize the plot
+%Plot the full absorption spectrum
 xlabel('Wavelength (nm)');
 ylabel('Absorption');
 title('Absorption Spectra');

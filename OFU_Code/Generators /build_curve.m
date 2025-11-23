@@ -12,7 +12,6 @@ wavelengths = linspace(min_wavelength, max_wavelength, num_wavelengths);
 absorption_curve = zeros(1, num_wavelengths);
 
 % Randomly generate Gaussian peaks
- % For reproducibility
 for i = 1:num_peaks
     % Randomly select peak center, height, and width
     peak_center = min_wavelength + (max_wavelength - min_wavelength) * rand();
@@ -26,7 +25,7 @@ for i = 1:num_peaks
     absorption_curve = absorption_curve + peak;
 end
 
-% Normalize the absorption curve (optional)
+% Normalize the absorption curve
 absorption_curve = absorption_curve / max(absorption_curve);
 if plot_flag
 % Plot the simulated absorption spectrum
