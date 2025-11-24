@@ -27,7 +27,7 @@ function A = build_absorption_matrix(min_w, max_w, species_bool, num_points, dat
     % Build file paths using fullfile (OS-safe)
     % -----------------------------------------------------------
     path_Hb      = fullfile(data_folder, 'HbR_Spectrum.csv');
-    path_HbO      = fullfile(data_folder, 'Hb0_Spectrum.csv');
+    path_HbO      = fullfile(data_folder, 'HbO_Spectrum.csv');
     path_lipid      = fullfile(data_folder, 'Lipid_Spectrum.csv');
     path_ICG        = fullfile(data_folder, 'ICG_Spectrum.csv');
     path_methylene  = fullfile(data_folder, 'MethyleneBlue_spectrum.csv');
