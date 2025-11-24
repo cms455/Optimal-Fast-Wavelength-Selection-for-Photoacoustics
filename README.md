@@ -6,7 +6,7 @@ For additional details, see in-code documentation and comments within each file.
 
 ---
 
-## ** Algorithms**
+##  Algorithms 
 
 We include three core algorithms for identifying optimal wavelength subsets. Each algorithm aims to find a set of wavelengths that improves spectral unmixing performance (e.g., minimizes the Frobenius norm of the pseudoinverse or maximizes the smallest singular value).
 
@@ -28,7 +28,7 @@ Useful for large search spaces where brute force is not feasible.
 
 ---
 
-## ** Generators**
+##  Generators
 
 We include code for both synthetic spectrum generation and real spectral dataset construction.
 
@@ -63,12 +63,9 @@ Key utilities:
   Constructs a 5-species absorption matrix from individual CSV files.  
   *(Paths may need to be updated based on your environment.)*
 
-- **`build_absorption_matrix_v2.m`**  
-  Builds the absorption matrix directly from a combined `.mat` spectral dataset.
-
 ---
 
-## ** Examples**
+##  Examples
 
 We include several example scripts demonstrating how to use the generators and algorithms:
 
