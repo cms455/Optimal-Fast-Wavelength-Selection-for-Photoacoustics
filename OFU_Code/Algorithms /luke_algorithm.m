@@ -12,6 +12,8 @@ function [selected_matrix, row_indices] = luke_algorithm(A, k)
 %   selected_matrix : the resulting k-by-m matrix after selection
 %   row_indices     : the indices of the selected rows
 
+%Swap A to rows
+A = A';
     % Number of rows in the matrix
     [n, ~] = size(A);
 

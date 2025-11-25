@@ -37,11 +37,11 @@ function A = build_absorption_matrix(min_w, max_w, species_bool, num_points, dat
     % Load Hb + HbO spectra
     % -----------------------------------------------------------
     load_Hb = readmatrix(path_Hb);
-    Hb_data     = load_Hb(3:end, [1,2]);   % wavelength + Hb
+    Hb_data     = load_Hb(2:end, [1,2]);   % wavelength + Hb
   
 
     load_HbO = readmatrix(path_HbO);
-    HbO_data     = load_HbO(3:end, [1,2]);   % wavelength + Hb
+    HbO_data     = load_HbO(2:end, [1,2]);   % wavelength + Hb
 
     %% -----------------------------------------------------------
     % Load lipid spectrum
@@ -55,7 +55,7 @@ function A = build_absorption_matrix(min_w, max_w, species_bool, num_points, dat
     % Load ICG spectrum
     % -----------------------------------------------------------
     load_ICG = readmatrix(path_ICG);
-    ICG_data = load_ICG(3:end, [1,2]);
+    ICG_data = load_ICG(2:end, [1,2]);
     ICG_data(:,2) = 0.05 * ICG_data(:,2);      % amplitude normalization
 
 
@@ -63,7 +63,7 @@ function A = build_absorption_matrix(min_w, max_w, species_bool, num_points, dat
     % Load Methylene Blue
     % -----------------------------------------------------------
     load_MB = readmatrix(path_methylene);
-    methyl_blue = load_MB(3:end, :);
+    methyl_blue = load_MB(2:end, :);
     methyl_blue(:,2) = 0.1 * methyl_blue(:,2);
 
 

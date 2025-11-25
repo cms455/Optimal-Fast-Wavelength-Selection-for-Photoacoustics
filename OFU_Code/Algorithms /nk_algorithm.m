@@ -1,4 +1,4 @@
-function [best_genotype, best_fitness] = nk_column_selector(A, k, num_iters)
+function [best_genotype, best_fitness] = nk_algorithm(A, k, num_iters)
 % nk_column_selector: NK-model style local search for minimizing Frobenius norm
 %
 % Inputs:
@@ -48,6 +48,8 @@ for iter = 1:num_iters
         genotype = new_genotype;  % move to new point
     end
 end
+
+best_fitness = abs(best_fitness);
 %{
 selected_indices = find(best_genotype);
 fprintf('Selected column indices: [%s]\n', num2str(selected_indices));

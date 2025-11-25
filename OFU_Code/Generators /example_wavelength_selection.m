@@ -1,0 +1,52 @@
+data_folder = '/Users/calvinsmith/Bouma_lab/Optimal_Fast_Unmixing_PA/Spectrum_Data';
+
+species_bool = [1 1 1 1 0];   % Include Hb, HbO, Lipid, ICG only
+
+% Build absorption matrix: rows = species, cols = wavelengths
+A = build_absorption_matrix(700, 900, species_bool, 200, data_folder);
+
+figure;
+plot(A');
+xlabel('Wavelength sample index');
+ylabel('Absorption (a.u.)');
+title('Absorption spectra');
+
+%% ------------------------------------------------------------
+% Number of wavelengths to select
+%% ------------------------------------------------------------
+k = 6;   % <-- choose how many wavelengths you want
+
+
+%% ------------------------------------------------------------
+% 1) LUKE Algorithm (using your existing row-based implementation)
+%    Your luke_algorithm selects ROWS, but we want COLUMNS (wavelengths).
+%    Trick: run it on A' so rows = wavelengths.
+%% ------------------------------------------------------------
+
+% A' has size [num_wavelengths x num_species]
+[selected_columns_luke, luke_column_indices] = luke_algorithm(A, k);
+
+% Convert back to a species x k submatrix of wavelengths
+subA_luke = A(:, luke_column_indices);   % columns in original A
+
+fro_luke = norm(pinv(subA_luke), 'fro');
+
+fprintf('LUKE algorithm: Frobenius norm = %.6g (k = %d)\n', fro_luke, k);
+fprintf('LUKE selected wavelengths (nm):\n');
+disp(wavelengths(luke_column_indices));
+
+%% ------------------------------------------------------------
+% 2) NK Algorithm (assumes nk_algorithm returns column indices)
+%% ------------------------------------------------------------
+
+% Example assumed signature:
+num_iters = 1000;
+[nk_indices, nk_fro] = nk_algorithm(A, k, num_iters);  
+wavelengths = linspace(700, 900, 200);
+NK_column_indices = wavelengths(logical(nk_indices));
+
+
+fprintf('NK algorithm:   Frobenius norm = %.6g (k = %d)\n', nk_fro, k);
+fprintf('NK selected wavelengths (nm):\n');
+disp((NK_column_indices));
+
