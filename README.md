@@ -51,7 +51,7 @@ Used to test algorithm behavior under controlled conditions.
 
 ### **Real Spectra**
 
-Real spectral datasets are stored in the **`Spectrum_Data/`** directory as `.csv` or `.mat` files.
+Real spectral datasets are stored in the **`Spectrum_Data/`** directory as `.csv` or `.mat` files. The spectral data is taken from : https://omlc.org/spectra/
 
 Key utilities:
 
